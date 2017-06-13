@@ -13,7 +13,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mainPageStyle.css" type="text/css">
-        <meta http-equiv="refresh" content="60">
         <%
             if (session.getAttribute(Const.LOGIN) == null) { // has not Login , goto login page 
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
@@ -70,5 +69,6 @@
         </div>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/snow.js"></script>
+        <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
     </body>
 </html>

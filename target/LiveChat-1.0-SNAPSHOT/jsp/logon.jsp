@@ -102,6 +102,7 @@
 %>
             </div>
         </div>
+             <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
         <script src="<%=request.getContextPath()%>/js/prompt.js"></script>
         <script type="text/javascript">
                                

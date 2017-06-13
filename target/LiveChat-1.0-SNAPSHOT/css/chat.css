@@ -1,0 +1,176 @@
+/*
+Author : echo0 
+Email   : ech0.extreme@foxmail.com
+*/
+/* 
+    Created on : Jun 13, 2017, 4:59:27 PM
+    Author     : Ech0
+*/
+#userBanner{
+    color: cyan; 
+    width: 100%;
+    height: 20px;
+    padding: 4px;
+}
+#userList{
+    width: 100%;
+    height: 370px;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+
+#msgInput{  
+    outline:none;
+    margin: 10px;
+    border:0;  
+    background-color:transparent;  
+    color: springgreen;  
+    height: auto;  
+    font-family: 微软雅黑;
+    font: 1.4rem;
+    width: 97%; 
+    height: 88%;
+    overflow: auto;  
+    word-break: break-all;
+} 
+.functionButton{
+    width: 36px;
+    height: 36px;
+    border-radius: 33px;
+    cursor: pointer;
+}
+
+#emojiButton,#pictureButton{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+#footer{
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+    width: auto;
+    height:  140px;
+}
+#buttonPanel{
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+    width: auto;
+    height: 40px;
+
+}
+#userPanel{
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+    display: inline-block;
+    height: 100%;
+    float:right;
+    width:200px;
+
+}
+#message{
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+    display: inline-block;
+    width: 784px;
+    height: 100%;
+
+}
+
+#content{
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+    width: auto;
+    height: 400px;
+
+
+}
+#header{
+    position: relative;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+#personalNote{  
+
+    border-style: dotted;
+    border-color: #ff7496;
+
+    width: auto;
+    height: auto;
+    display: inline; 
+    position:absolute;
+    left: 110px;
+    top:  70px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: aqua;
+}
+#headImg{
+    width: 71px;
+    height: 71px;
+    border-radius: 50px;
+    border-style: inset;
+    border-color: #86C166;
+    clear: both; 
+    display: inline-block; 
+    margin-left: 18px;
+    margin-top: 18px;
+}
+body {
+    -webkit-align-items: center;  
+    -ms-flex-align: center;  
+    align-items: center;
+    display: -webkit-flex;
+    display: flex;
+    font-family: 微软雅黑;
+    background: url("../img/ironman.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+#container{
+
+
+    border-radius: 33px;
+    border-style: dotted;
+    border-color: #ff7496;
+
+
+    border-radius: 50px;
+    background: rgba(255,255,240,0.4);
+    width: 1000px;
+    height: 700px;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#logoDot {
+    color: #d74580;
+}
+#logo ,#sendButton {
+    position: fixed;
+    right: 2rem;
+    bottom: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #d6d6d6;
+    font-size: 2rem;
+    letter-spacing: 0.025em;
+}
