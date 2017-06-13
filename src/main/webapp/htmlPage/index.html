@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testing websockets</title>
+        <script src="./lib/jquery.min.js"></script>
+    </head>
+    <body>
+        <table border="1" cellpadding="2">
+            <tbody>
+                <tr>
+                    <td> UserName </td>
+                    <td><input  id="userName" type="text" name="userName" value="Anonymous" /></td>
+                </tr>
+                <tr>
+                    <td> Message  </td>
+                    <td> <input  id="message" type="text" name="message " value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <textarea id="messages" rows="4" cols="34" ></textarea>
+
+        <div>
+            <input type="submit" value="connect" onclick="connect()" />
+            <input type="submit" value="sendMessage" onclick="send()" />
+        </div>
+      
+        <script type="text/javascript">
+            var serverUrl = 'ws://localhost:8080/LiveChat/server/';
+            var webSocket;
+            var message;
+            var status = 0;
+            $(window).bind('beforeunload', function () {
+              if(status===1){
+                  webSocket.close();
+              }
+            });
+            function initWebSocket(webSocket) {
+
+                webSocket.onerror = function (event) {
+                    onError(event)
+                };
+
+                webSocket.onopen = function (event) {
+                    onOpen(event)
+                };
+
+                webSocket.onmessage = function (event) {
+                    onMessage(event)
+                };
+            }
+
+            function onMessage(event) {
+
+                var originalContent = $('#messages').val();
+                $('#messages').val(originalContent + '          ' + event.data);
+
+            }
+
+            function onOpen(event) {
+                $('#messages').val('connection established');
+            }
+
+            function onError(event) {
+                alert(event.data);
+            }
+
+            function connect() {
+                if (status === 1) {
+                    return false;
+                }
+                serverUrl = serverUrl + $('#userName').val();
+                webSocket = new WebSocket(serverUrl);
+                initWebSocket(webSocket);
+                status = 1;
+            }
+
+            function send() {
+                message = $('#message').val();
+                webSocket.send(message);
+            }
+        </script>
+    </body>
+</html>
