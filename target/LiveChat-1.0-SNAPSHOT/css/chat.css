@@ -6,12 +6,159 @@ Email   : ech0.extreme@foxmail.com
     Created on : Jun 13, 2017, 4:59:27 PM
     Author     : Ech0
 */
+.message-other-warpper{
+    text-align: left;
+}
+.message-content-other{
+    
+    
+    position: static;
+    vertical-align: top;
+    width: 680px;
+    max-height: 100%;
+    display: inline-block;
+    clear: both; 
+    padding: 5px;
+    text-align: left;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+}
+.message-headImg-other{
+
+    position: static;
+    vertical-align: top;
+    width: 30px;
+    height:  30px;
+    border-radius: 30px;
+    display: inline-block;
+    clear: both; 
+    margin-left:  0.3em;
+    margin-top: 0.5em;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+.message-own-warpper{
+    text-align: right;
+}
+.message-content-own{
+
+    position: static;
+    vertical-align: top;
+    width: 680px;
+    max-height: 100%;
+    display: inline-block;
+    clear: both; 
+    padding: 5px;
+    text-align: right;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+
+}
+.message-headImg-own{
+
+    position: static;
+    vertical-align: top;
+    width: 30px;
+    height:  30px;
+    border-radius: 30px;
+    display: inline-block;
+    clear: both; 
+    margin-right: 0.3em;
+    margin-top: 0.5em;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+
+/*
+.message-own{
+    position: relative;
+    height: 133px;
+    width: 100%;
+    text-align: right;
+    background: #434343;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+.message-headImg{
+    position: absolute;
+    right:   0.1rem;
+    top: 1rem;
+    width: 30px;
+    height:  30px;
+    border-radius: 30px;
+    display: inline-block;
+    clear: both; 
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}
+.message-content{
+    position: absolute;
+    right:   2rem;
+    top: 1.3rem;
+    width: 700px;
+    max-height: 100%;
+    display: inline-block;
+    clear: both; 
+    padding: 5px;
+
+    border-style: dotted;
+    border-color: #ff7496;
+    border-radius: 33px;
+}*/
+
+.username{
+    width: auto;
+    height: 20px;
+    display: inline-block; 
+    position:absolute;
+    left: 35px;
+    top:  5px;
+    font-family: 微软雅黑;
+    font-weight: 600;
+    color: tomato;
+}
+.user-headImg{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border-style: inset;
+    border-color: #86C166;
+    clear: both; 
+    display: inline-block; 
+}
+
+.user{
+    position: relative;
+    width: 100%;
+    height: 20px;
+    margin-top: 3px;
+}
+#onlineUserAmount{
+    font-weight: bolder;
+    color: aquamarine;
+}
 #userBanner{
-    color: cyan; 
+    font-family: 微软雅黑;
+    color: #434343; 
     width: 100%;
     height: 20px;
     padding: 4px;
+    font-weight: 900;
 }
+
 #userList{
     width: 100%;
     height: 370px;
@@ -22,19 +169,53 @@ Email   : ech0.extreme@foxmail.com
 }
 
 #msgInput{  
+    background: #d6d6d6;
+    padding-left: 14px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+
     outline:none;
-    margin: 10px;
+
     border:0;  
     background-color:transparent;  
     color: springgreen;  
     height: auto;  
     font-family: 微软雅黑;
-    font: 1.4rem;
+    font-weight: 700;
+    font-size: 1rem;
     width: 97%; 
     height: 88%;
-    overflow: auto;  
+    overflow-y:  auto;  
     word-break: break-all;
+
 } 
+/*scrollbar*/
+#msgInput::-webkit-scrollbar-track,#message::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+    background-color: rgba(0,0,0,0);
+    border-radius: 30px;
+}
+#msgInput::-webkit-scrollbar,#message::-webkit-scrollbar
+{
+    border-radius: 30px;
+    width: 10px;
+    background-color: rgba(43,43,43,0.1);
+}
+
+#msgInput::-webkit-scrollbar-thumb,#message::-webkit-scrollbar-thumb{
+
+    background-color: #AAA;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(90deg,
+        rgba(0, 0, 0, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0, 0, 0, .2) 50%,
+        rgba(0, 0, 0, .2) 75%,
+        transparent 75%,
+        transparent)
+}
 .functionButton{
     width: 36px;
     height: 36px;
@@ -48,7 +229,11 @@ Email   : ech0.extreme@foxmail.com
     display: inline-block;
     margin-left: 8px;
 }
-
+#sendButton{
+    position: absolute;
+    right:   2rem;
+    bottom: 0.5rem;
+}
 #footer{
     border-style: dotted;
     border-color: #ff7496;
@@ -56,12 +241,14 @@ Email   : ech0.extreme@foxmail.com
 
     width: auto;
     height:  140px;
+    position: relative;
 }
 #buttonPanel{
     border-style: dotted;
     border-color: #ff7496;
     border-radius: 33px;
-
+    
+    position: relative;
     width: auto;
     height: 40px;
 
@@ -74,9 +261,10 @@ Email   : ech0.extreme@foxmail.com
     display: inline-block;
     height: 100%;
     float:right;
-    width:200px;
+    width:198px;
 
 }
+
 #message{
     border-style: dotted;
     border-color: #ff7496;
@@ -85,9 +273,33 @@ Email   : ech0.extreme@foxmail.com
     display: inline-block;
     width: 784px;
     height: 100%;
-
+    position: relative;
+    overflow-y: auto;
 }
+.emoji{
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    display: inline-block;
+    cursor: pointer;
+}
+#emojiWrapper{
+    border-style: dotted;
+    border-color: #ff7496;
+    /*border-radius: 33px;*/
+    /*background: #ffe;*/
 
+    display: none;
+    padding-left: 14px; 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    overflow: auto;
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    left:  0rem;
+    bottom: 2.4rem;
+}
 #content{
 
     border-style: dotted;
@@ -96,8 +308,6 @@ Email   : ech0.extreme@foxmail.com
 
     width: auto;
     height: 400px;
-
-
 }
 #header{
     position: relative;
@@ -164,7 +374,7 @@ body {
 #logoDot {
     color: #d74580;
 }
-#logo ,#sendButton {
+#logo  {
     position: fixed;
     right: 2rem;
     bottom: 0.25rem;

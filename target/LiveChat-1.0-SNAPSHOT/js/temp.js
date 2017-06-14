@@ -5,6 +5,8 @@
  *view on GitHub:https://github.com/wayou/HiChat
  *see it in action:http://hichat.herokuapp.com/
  */
+
+
 window.onload = function () {
     var hichat = new HiChat();
     hichat.init();
