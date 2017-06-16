@@ -1,6 +1,8 @@
 cn\echo0\common\Const.class
 cn\echo0\pojo\User.class
 cn\echo0\utils\Collections.class
+cn\echo0\pojo\Msg.class
+cn\echo0\utils\UserMsgUtil.class
 cn\echo0\servlet\VerifyCode.class
 cn\echo0\utils\MD5Util.class
 cn\echo0\servlet\doLogon.class

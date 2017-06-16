@@ -14,8 +14,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/verify.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/functions/verify.js"></script>
     <%
         boolean hasLogin = (Boolean) session.getAttribute(Const.LOGIN);
         if (hasLogin) { // has login  goto main page 
@@ -103,7 +103,7 @@
             </div>
         </div>
              <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
-        <script src="<%=request.getContextPath()%>/js/prompt.js"></script>
+        <script src="<%=request.getContextPath()%>/js/functions/prompt.js"></script>
         <script type="text/javascript">
                                
         </script>

@@ -9,8 +9,10 @@ C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\servlet\doLogoff.ja
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\common\Const.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\utils\VerifyCodeUtil.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\servlet\doLogon.java
+C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\utils\UserMsgUtil.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\servlet\VerifyCode.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\utils\ServletBeanUtil.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\utils\MD5Util.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\servlet\doLogin.java
 C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\pojo\User.java
+C:\my_work\NetBeans\Imported\LiveChat\src\main\java\cn\echo0\pojo\Msg.java

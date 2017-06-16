@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Online-Chat </title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" type="text/css">
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.css" />
         <script type="text/javascript" src="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
@@ -43,12 +43,8 @@
                     </div>
                 </div>
                 <div id="userPanel">
-                    <div id="userBanner">当前在线用户数：<span id="onlineUserAmount">1</span></div>
+                    <div id="userBanner">当前在线用户数：<span id="onlineUserAmount">0</span></div>
                     <div id="userList">
-                        <div id="user-username"  class="user">
-                            <img class="user-headImg" src="<%=request.getContextPath()%>/img/headImg/default.jpg">
-                            <div class="username">Echo0</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +62,9 @@
         </div>
         <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
         <%@include file="./segment/effects.jsp" %>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/socketClient.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/js/buttonFunction.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/handleMsg/encapsulateMsg.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/functions/userPanelFunctions.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/client/socketClient.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/functions/buttonFunction.js"></script>
     </body>
 </html>
