@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page errorPage="../jsp/headleError/goToLogin.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,6 +53,7 @@
                 <div class="logoff" >
                     <input type="button" value ="Log0FF" id="logoff" onclick="location.href = '<%=request.getContextPath()%>/doLogoff'">
                 </div>
+                <a href='<%=request.getContextPath()%>/jsp/chat.jsp'>to Chat</a>
             </div>
         </div>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>

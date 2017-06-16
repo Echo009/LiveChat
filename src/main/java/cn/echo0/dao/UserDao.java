@@ -8,7 +8,6 @@ package cn.echo0.dao;
 import cn.echo0.common.DBConfig;
 import cn.echo0.pojo.User;
 import cn.echo0.utils.MD5Util;
-import cn.echo0.utils.PrintResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +34,6 @@ public class UserDao { // use  dbcp
         DS.setMaxTotal(30);
         DS.setMinIdle(2);
     }
-    
     public static boolean addUser(User user) {
         String sql = "insert into  " + DBConfig.TABLE_NAME
                 + " values(?,?,?,?,?) ";
@@ -52,7 +50,6 @@ public class UserDao { // use  dbcp
             return false;
         }
     }
-    
     public static boolean verifyUser(User user) {
         String whereClause = " where username = ? and password = ? ";
         try (Connection conn = DS.getConnection();
@@ -70,7 +67,6 @@ public class UserDao { // use  dbcp
         }
         return true;
     }
-    
     public static boolean checkUsername(String username) {
         String whereClause = " where username = ?";
         try (Connection conn = DS.getConnection();
@@ -87,17 +83,4 @@ public class UserDao { // use  dbcp
         }
         return true;
     }
-//    
-//    public static void main(String[] args) throws SQLException {
-//////        System.out.println(checkUsername("Echo0"));
-//////        Connection conn = DS.getConnection();
-//////        PreparedStatement psmt = conn.prepareStatement("select * from " + DBConfig.TABLE_NAME);
-//////        ResultSet rs = psmt.executeQuery();
-//////        PrintResultSet.printResultSet(rs);
-//        User user = new User();
-//        user.setUsername("Lan");
-//        user.setPassword("ironman");
-////        System.out.println(verifyUser(user));
-//        System.out.println(addUser(user));
-//    }
 }

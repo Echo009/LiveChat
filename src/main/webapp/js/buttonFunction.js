@@ -8,43 +8,90 @@
 //<img class='emoji' src='../img/phiz/22.png/>
 // class : emoji 
 // title : serialNumber 
-//
-//message-own
-//message-other
-//<div class="message-own"></div>
-//
 
 
+var username;
+//need usernameString
+if (typeof (usernameString) == "undefined") {
+    username = "Anonymous";
+} else {
+    username = usernameString;
+}
 
 var emojiButtonStatus = false;
 var emojisIsCraeted = false;
 var customScrollbarStatus = false;
-var $inputMsg = $('#msgInput');
+
 var $messagePanel = $('#message');
 var $emojiWrapper = $('#emojiWrapper');
 
+//         '<div class='message-other-warpper'>
+//                 <img class='message-headImg-other' src='../img/headImg/echo.jpg'/>
+//                  <div class='message-username'>Echo0</div>
+//                 <div  class='message-content-other'>mdzz ！</div>
+//        </div>'
+//--------------------------------------------addMessage
+function addOtherMessageToPanel(otherMsgContentHtml, username) {//wrap otherMsg
 
-function sendMsg() {
-    if($inputMsg.html()==""){
-        console.log("no message !");
-        return ;
+    var headImgString = "default";
+    if (typeof (username) == "undefined") {
+        username = "Anonymous";
     }
-    addOwnMessageToPanel();
-    $inputMsg.html("");
+//    if (username == "Lan" || username == "Echo0") {
+//        headImgString = username;
+//    } else {
+//        headImgString = "default";
+//    }
+    var otherMsgWrapperPerfix = "<div class='message-other-warpper'>" +
+            "<img class='message-headImg-other' src='../img/headImg/";
+    var otherMsgHeadImgSuffix = ".jpg'/>";
+    var otherMsgUsernamePerfix = " <div class='message-username'>"
+//    +username
+    var divEndTag = "</div>";
+    var otherMsgContentPerfix = "<div  class='message-content-other'>";
+    var otherMsgHtml = otherMsgWrapperPerfix + headImgString + otherMsgHeadImgSuffix
+            + otherMsgUsernamePerfix + username + divEndTag
+            + otherMsgContentPerfix + otherMsgContentHtml + divEndTag;
+    $messagePanel.append(otherMsgHtml);
+    console.log("otherMsg : " + otherMsgHtml);
 }
+
+//--------------------------------------------sendMessage
+//function sendMsg() {
+//    if ($inputMsg.html() == "") {
+//        console.log("no message !");
+//        return;
+//    }
+//    console.log(addOwnMessageToPanel());
+//    $inputMsg.html("");
+//}
 //    <div class="message-own-warpper">
-//           <div  class="message-content-own"></div>
+//           <div  class="message-content-own">好喜欢你</div>
+//           <div class='message-username'>Echo0</div>
 //           <img class="message-headImg-own" src="../img/headImg/echo.jpg"/>
 //      </div>
-function addOwnMessageToPanel() {
+//      var 
+//--------------------------------------------addMessage
+function addOwnMessageToPanel() { //wrap ownMsg
+    var headImgString;
+    if (username == "Lan" || username == "Echo0") {
+        headImgString = username;
+    } else {
+        headImgString = "default";
+    }
     var ownMsgWrapperPerfix = "<div class='message-own-warpper'>" +
             "<div  class='message-content-own'>";
+    var ownMsgUsernamePerfix = "<div class='message-username'>";
     var divEndTag = "</div>";
-    var ownMsgWrapperSuffix = "<img class='message-headImg-own' src='../img/headImg/echo.jpg'/>";
-    var ownMsgHtml = ownMsgWrapperPerfix+$inputMsg.html()+divEndTag+ownMsgWrapperSuffix+divEndTag;
+    var ownMsgWrapperSuffix = "<img class='message-headImg-own' src='../img/headImg/";
+    var ownMsgHeadImgSuffix = ".jpg'/>";
+    var ownMsgHtml = ownMsgWrapperPerfix + $inputMsg.html() + divEndTag + ownMsgUsernamePerfix
+            + username + divEndTag + ownMsgWrapperSuffix
+            + headImgString + ownMsgHeadImgSuffix + divEndTag;
     $messagePanel.append(ownMsgHtml);
+    return 'ownMsg  : ' + ownMsgHtml;
 }
-
+//--------------------------------------------emoji
 function emoji() {
     if (emojiButtonStatus) {
         $emojiWrapper.hide(719);
@@ -56,7 +103,7 @@ function emoji() {
             addEmojiClick();
             emojisIsCraeted = true;
         }
-         console.log(" Try to show emoji ~ ");
+        console.log(" Try to show emoji ~ ");
         $emojiWrapper.show(719);
         $messagePanel.prop("disabled", true);
         if (!customScrollbarStatus) {
@@ -91,7 +138,7 @@ function addEmojiClick() {
         $msgInput.append($emoji);
         emoji();
     });
-    $emojiWrapper.mouseleave(function (){
+    $emojiWrapper.mouseleave(function () {
         emoji();
     });
 }

@@ -15,7 +15,6 @@ import java.util.Properties;
  * @author Ech0
  */
 public class DBConfig {
-    
     public static final String DRIVER;
     public static final String REMOTE_URL;
     public static final String REMOTE_USERNAME;
@@ -24,7 +23,6 @@ public class DBConfig {
     public static final String LOCAL_USERNAME;
     public static final String LOCAL_PASSWORD;
     public static final String TABLE_NAME;
-    
     static { //init 
             DRIVER = PropertiesUtil.getProperty("driver");
             REMOTE_URL=PropertiesUtil.getProperty("remote.url")+PropertiesUtil.getProperty("url.suffix");
@@ -36,7 +34,5 @@ public class DBConfig {
             LOCAL_PASSWORD=PropertiesUtil.getProperty("local.password");
             
             TABLE_NAME=PropertiesUtil.getProperty("tableName");
-            
     }
-
 }

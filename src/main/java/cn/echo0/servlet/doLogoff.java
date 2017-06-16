@@ -27,10 +27,8 @@ public class doLogoff extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession session = request.getSession();
-            session.removeAttribute(Const.CURRENT_USER);
-            session.setAttribute(Const.LOGIN, false);
+            session.invalidate();
             response.sendRedirect(request.getContextPath() + "/index.jsp"); // redo login 
         }
     

@@ -7,7 +7,31 @@ and open the template in the editor.
     Created on : Apr 19, 2017, 12:55:24 PM
     Author     : Ech0
 */
-
+a{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+a:link { 
+    color:red; 
+    text-decoration:underline; 
+} 
+a:visited { 
+    color:#000; 
+    text-decoration:none; 
+} 
+a:hover { 
+    color:#E83015; 
+    text-decoration:underline; 
+} 
+a:active { 
+    color:yellow; 
+    text-decoration:none; 
+}
+a{
+    font-size:1.4em;
+    font-family: 微软雅黑;
+}
 body{
         background: url("../img/ironman.jpg");
 }
