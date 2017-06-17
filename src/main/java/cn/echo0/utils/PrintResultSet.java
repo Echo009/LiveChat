@@ -1,7 +1,7 @@
 /*
  * Author : echo0 
  * Email   : ech0.extreme@foxmail.com
- * 
+ * Time    :  2017年4月27日14:31:01
  */
 package cn.echo0.utils;
 
@@ -10,7 +10,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 /**
- * @time 2017年4月27日14:31:01
  * @author Ech0
  */
 public class PrintResultSet {

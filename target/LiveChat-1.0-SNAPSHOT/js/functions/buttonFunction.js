@@ -5,7 +5,7 @@
  */
 // enable jquery
 //need usernameString
-
+// need autoScroll.js
 var username;
 
 var emojiButtonStatus = false;
@@ -18,6 +18,20 @@ if (typeof (usernameString) == "undefined") {
 } else {
     username = usernameString;
 }
+
+//#pictureButton
+$(function () {
+    var fileSelect = document.getElementById("pictureButton"),
+            fileElem = document.getElementById("choosePic");
+    fileSelect.addEventListener("click", function (e) {
+        if (fileElem) {
+            fileElem.click();
+        }
+        e.preventDefault(); // prevent navigation to "#"
+    }, false);
+});
+
+
 //         '<div class='message-other-warpper'>
 //                 <img class='message-headImg-other' src='../img/headImg/echo.jpg'/>
 //                  <div class='message-username'>Echo0</div>
@@ -45,7 +59,8 @@ function addOtherMessageToPanel(otherMsgContentHtml, username) {//wrap otherMsg
             + otherMsgUsernamePerfix + username + divEndTag
             + otherMsgContentPerfix + otherMsgContentHtml + divEndTag;
     $messagePanel.append(otherMsgHtml);
-    console.log("otherMsg : " + otherMsgHtml);
+    scrollToMsgPanelBottom();
+//    console.log("otherMsg : " + otherMsgHtml);
 }
 //    <div class="message-own-warpper">
 //           <div  class="message-content-own">好喜欢你</div>
@@ -54,7 +69,7 @@ function addOtherMessageToPanel(otherMsgContentHtml, username) {//wrap otherMsg
 //      </div>
 //      var 
 //--------------------------------------------addMessage
-function addOwnMessageToPanel() { //wrap ownMsg
+function addOwnMessageToPanel(msg) { //wrap ownMsg
     var headImgString;
     if (username == "Lan" || username == "Echo0") {
         headImgString = username;
@@ -67,11 +82,12 @@ function addOwnMessageToPanel() { //wrap ownMsg
     var divEndTag = "</div>";
     var ownMsgWrapperSuffix = "<img class='message-headImg-own' src='../img/headImg/";
     var ownMsgHeadImgSuffix = ".jpg'/>";
-    var ownMsgHtml = ownMsgWrapperPerfix + $inputMsg.html() + divEndTag + ownMsgUsernamePerfix
+    var ownMsgHtml = ownMsgWrapperPerfix + msg + divEndTag + ownMsgUsernamePerfix
             + username + divEndTag + ownMsgWrapperSuffix
             + headImgString + ownMsgHeadImgSuffix + divEndTag;
     $messagePanel.append(ownMsgHtml);
-    return 'ownMsg  : ' + ownMsgHtml;
+    scrollToMsgPanelBottom();
+//    return 'ownMsg  : ' + ownMsgHtml;
 }
 //--------------------------------------------emoji
 function emoji() {

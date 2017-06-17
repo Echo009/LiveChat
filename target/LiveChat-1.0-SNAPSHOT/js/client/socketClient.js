@@ -35,7 +35,7 @@ $(function () {
 //    "to": "username",
 //    "msgContent": "This is a simple message from echo0",
 //    "containImg": true,
-//    "timeStamp": "2017-06-16T07:30:01.219Z"
+//    "timeStamp": "2017-06-16 15:41:40"
 //}
 //  msgType : 
 //    0 : 群发
@@ -44,20 +44,18 @@ $(function () {
 //    3 : 更新用户列表 - 1 
 //    4 : 初始化用户列表
 function onMessage(event) { //to show other msg
-    console.log(event.data);
     // to do  提取data中的 消息正文 以及用户名 ,消息类型
     // formMsgObject(msgJsonString)
-    var msg=formMsgObject(event.data);
+    var msg = formMsgObject(event.data);
     var type = msg.msgType;
-    var fromUsername=msg.from;
+    var fromUsername = msg.from;
     var msgContent = msg.msgContent;
-    if(type==0){ 
-        addOtherMessageToPanel(msgContent,fromUsername);
-    }
-    else if(type==2){// add user  to userPanel
+    console.log(type + " " + fromUsername );
+    if (type == 0) {
+        addOtherMessageToPanel(msgContent, fromUsername);
+    } else if (type == 2) {// add user  to userPanel
         addUserToUserListByUsername(msgContent);// 正文中仅包含单个用户名
-    }
-    else if(type==3){//remove user from userPanel 
+    } else if (type == 3) {//remove user from userPanel 
         removeUserFromUserListByUsername(msgContent);
     }
 }
@@ -73,7 +71,7 @@ function sendMsg() {//to send msg , and add ownMsg to MessagePannel
 //    to do  encapsulate message .
 //    encapsulateMsg(type,from,msgContent,to,containImg)
 //   目前仅实现群发 纯文本消息
-   message= encapsulateMsg(0,usernameString,message,"",false);
+    message = encapsulateMsg(0, usernameString, message, "", false);
     webSocket.send(message);
 }
 

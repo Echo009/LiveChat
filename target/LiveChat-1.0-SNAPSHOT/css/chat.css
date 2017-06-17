@@ -6,6 +6,11 @@ Email   : ech0.extreme@foxmail.com
     Created on : Jun 13, 2017, 4:59:27 PM
     Author     : Ech0
 */
+img{
+    max-height: 600px;
+    max-width: 500px;
+    border-radius: 5px;
+}
 .message-username{
 
     text-overflow:ellipsis; 
@@ -152,11 +157,13 @@ Email   : ech0.extreme@foxmail.com
     color: tomato;
 }
 .user-headImg{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    border-style: inset;
+    
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    border-style: none;
     border-color: #86C166;
+    border-width: 2px;
     clear: both; 
     display: inline-block; 
 }
@@ -165,9 +172,9 @@ Email   : ech0.extreme@foxmail.com
     position: relative;
     width: 100%;
     height: 20px;
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: left;
-    padding-left: 5px;
+    padding-left:6px;
 }
 #onlineUserAmount{
     font-weight: bolder;
@@ -185,10 +192,12 @@ Email   : ech0.extreme@foxmail.com
 #userList{
     width: 100%;
     height: 370px;
-
-    border-style: dotted;
+    overflow-x:hidden;
+    overflow-y: auto;
+    
+    border-style: solid;
     border-color: #ff7496;
-    border-radius: 33px;
+    /*border-radius: 33px;*/
 }
 
 #msgInput{  
@@ -285,12 +294,14 @@ Email   : ech0.extreme@foxmail.com
 #userPanel{
     border-style: dotted;
     border-color: #ff7496;
-    border-radius: 33px;
+    border-radius: 2px;
 
     display: inline-block;
     height: 100%;
     float:right;
     width:198px;
+    overflow-x:hidden;
+    overflow-y: hidden;
 
 }
 
@@ -304,6 +315,7 @@ Email   : ech0.extreme@foxmail.com
     height: 100%;
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .emoji{
     width: 45px;

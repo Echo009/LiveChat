@@ -5,12 +5,10 @@
  */
 package cn.echo0.pojo;
 
-import java.util.logging.Logger;
-
 /**
- * @desc 客户端与服务端之间传送的消息类
  * @author Ech0
  */
+//desc 客户端与服务端之间传送的消息类
 //{
 //    "msgType": 0,
 //    "from": "username",

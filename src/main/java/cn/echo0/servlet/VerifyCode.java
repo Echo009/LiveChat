@@ -3,7 +3,7 @@ package cn.echo0.servlet;
 /*
  * Author : echo0 
  * Email   : ech0.extreme@foxmail.com
- * 
+ * desc 用servlet处理验证码请求
  */
 import cn.echo0.utils.VerifyCodeUtil;
 import java.io.IOException;
@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @desc 用servlet处理验证码请求
- * @time 2017-5-1 14:52:51
  * @author Ech0
  */
 @WebServlet(name = "verifyCode",urlPatterns = {"/VerifyCode"})
