@@ -5,10 +5,8 @@
  * desc 生成更新用户列表的msg
  */
 package cn.echo0.utils;
-
 import cn.echo0.pojo.Msg;
 import com.google.gson.Gson;
-
 /**
  * @author Ech0
  */

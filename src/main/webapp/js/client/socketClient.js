@@ -25,7 +25,7 @@ $(function () {
     serverUrl = serverUrl + $username.text();
     webSocket = new WebSocket(serverUrl);
     initWebSocket(webSocket);
-    status = 1;
+    socketStatus = 1;
 });
 //#message
 // decorate message by json 
@@ -50,7 +50,7 @@ function onMessage(event) { //to show other msg
     var type = msg.msgType;
     var fromUsername = msg.from;
     var msgContent = msg.msgContent;
-    console.log(type + " " + fromUsername );
+    console.log(type + " " + fromUsername);
     if (type == 0) {
         addOtherMessageToPanel(msgContent, fromUsername);
     } else if (type == 2) {// add user  to userPanel
@@ -76,7 +76,6 @@ function sendMsg() {//to send msg , and add ownMsg to MessagePannel
 }
 
 
-
 function onOpen(event) {
 //    alert("connection establishment");
     console.log("connection establishment");
@@ -86,7 +85,11 @@ function onError(event) {
     alert("error ", event.data);
     location.reload(true);
 }
-
+function reConnect() {
+    webSocket = new WebSocket(serverUrl);
+    initWebSocket(webSocket);
+     console.log("reConnect !");
+}
 function initWebSocket(webSocket) {
 
     webSocket.onerror = function (event) {
@@ -100,7 +103,26 @@ function initWebSocket(webSocket) {
     webSocket.onmessage = function (event) {
         onMessage(event);
     };
+    webSocket.onclose=function (){
+           console.log("connection has been closed !");  //在这里需要重连或者退出或者直接刷新
+           console.log("try to reConnect !");
+           //init userPanel
+           cleanUserPanel();
+           setTimeout(function (){
+                reConnect();
+           },3000);
+    };
 }
+
+// webSocket.close();
+//try {
+//    webSocket.send(message);
+//}catch (err){
+////    console.error(err);
+//    reConnect() ;
+//    webSocket.send(message);
+//}
+
 
 $(window).bind('beforeunload', function () { //关闭webSocket
     if (status == 1) {

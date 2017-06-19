@@ -14,10 +14,10 @@
         Pattern pattern = Pattern.compile("^((?!Lan).)*$");
         if (("Echo0").equals(currentUser.getUsername()) //contain echo0
                 || !(pattern.matcher(currentUser.getUsername()).matches())) { //contain lan
-            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/heart.js'></script>");
+//            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/heart.js'></script>");
             out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/toLan/forLan.js'></script>");
         } else {
-            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/snow.js'></script>");
+//            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/snow.js'></script>");
         }
     }
 %>

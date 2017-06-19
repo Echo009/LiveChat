@@ -12,7 +12,6 @@ img{
     border-radius: 5px;
 }
 .message-username{
-
     text-overflow:ellipsis; 
     -o-text-overflow:ellipsis; 
     height: 30px;
@@ -228,20 +227,21 @@ img{
     background-color: rgba(0,0,0,0);
     border-radius: 30px;
 }
-#msgInput::-webkit-scrollbar,#message::-webkit-scrollbar
+#msgInput::-webkit-scrollbar,#message::-webkit-scrollbar,#userList::-webkit-scrollbar
 {
     border-radius: 30px;
     width: 10px;
     background-color: rgba(43,43,43,0);
 }
-#msgInput::-webkit-scrollbar:hover,#message::-webkit-scrollbar:hover
+#msgInput::-webkit-scrollbar:hover,#message::-webkit-scrollbar:hover,#userList::-webkit-scrollbar
 {
     border-radius: 30px;
     width: 10px;
     background-color: rgba(43,43,43,0.2);
 }
 
-#msgInput::-webkit-scrollbar-thumb,#message::-webkit-scrollbar-thumb{
+#msgInput::-webkit-scrollbar-thumb,#message::-webkit-scrollbar-thumb,#userList::-webkit-scrollbar-thumb
+{
 
     background-color: #AAA;
     border-radius: 10px;

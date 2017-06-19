@@ -14,6 +14,7 @@
         <title> Online-Chat </title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" type="text/css">
         <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/lib/velocity/velocity.js"></script>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.css" />
         <script type="text/javascript" src="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
@@ -31,7 +32,7 @@
             </div>
             <div id="content">
                 <div id="message">
-                    <div class="message-other-warpper">
+                    <div class="message-other-warpper" style="display: none" id="Echo0ToLan">
                         <img class="message-headImg-other" src="<%=request.getContextPath()%>/img/headImg/Echo0.jpg"/>
                         <div class="message-username">Echo0</div>
                         <div  class="message-content-other">好喜欢你啊 ！<img class='emoji' src='../img/phiz/22.png'/> <br><br><br><br><br><img class='emoji' src='../img/phiz/21.png'/> </div>
@@ -52,7 +53,7 @@
             </div>
             <div id="footer">
                 <div id="msgInput" contentEditable="true"></div>
-                <div id="sendButton"><img class="functionButton" onclick="sendMsg()" src="<%=request.getContextPath()%>/img/button/send.png"></div>
+                <div id="sendButton"><img class="functionButton " onmouseover="sendButtonEffects()" onclick="sendMsg()" src="<%=request.getContextPath()%>/img/button/send.png"></div>
 
             </div>
             <div id="emojiWrapper"></div>
@@ -60,6 +61,7 @@
         <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
         <%@include file="./segment/effects.jsp" %>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/handleMsg/encapsulateMsg.js"></script>
+                <script type="text/javascript" src="<%=request.getContextPath()%>/js/UEoptimization/buttonAnimation.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/UEoptimization/autoScroll.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/functions/userPanelFunctions.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/client/socketClient.js"></script>

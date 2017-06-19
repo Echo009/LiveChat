@@ -26,8 +26,14 @@
 //                    </div>
 //#onlineUserAmount
 
+
+// need velocity !
+//    $(thisEle).velocity("fadeIn", {duration: 1500});
+//    $(thisEle).velocity("fadeOut", {duration: 1500});
+
+
 var $onlineUserAmount = $("#onlineUserAmount");
-var $userList=$("#userList");
+var $userList = $("#userList");
 function addUserToUserListByUsername(username) {
     var amount = $onlineUserAmount.text();
     amount++;
@@ -37,7 +43,7 @@ function addUserToUserListByUsername(username) {
     if (username == "Echo0" || username == "Lan") {
         headImgString = username;
     }
-    var userPanelWrapperPerfix = "<div id='user-username'  class='user' title='";//+username
+    var userPanelWrapperPerfix = "<div class='user' title='";//+username
     var headImgWrapperPerfix = "'><img class='user-headImg' src='../img/headImg/";//+headImgString 
     var usernameWrapperPerfix = ".jpg'><div class='username'>";//+username 
     var divEndTag = "</div>";
@@ -45,12 +51,31 @@ function addUserToUserListByUsername(username) {
             + headImgWrapperPerfix + headImgString
             + usernameWrapperPerfix + username + divEndTag + divEndTag;
     $userList.append(user);
+//    .user[title='username']
+
+    var thisEle = ".user[title='" + username + "']";
+    $(thisEle).velocity("slideDown", {duration: 1719});
+
 }
 function removeUserFromUserListByUsername(username) {
     var amount = $onlineUserAmount.text();
     amount--;
     $onlineUserAmount.text(amount);
 
-    var selector = "#user-username[title='" + username + "']";
-    $(selector).remove();
+    var selector = ".user[title='" + username + "']";
+    $(selector).velocity("slideUp", {duration: 1719, complete: function () {
+            $(this).remove();
+        }});
+}
+function cleanUserPanel() { //清除用户面板内的所有内容
+    var $users = $("#userList .user");
+    $onlineUserAmount.text("0");
+    $users.each(function () {
+        var time = 2500;
+        $(this).velocity("fadeOut",{duration:time-=200});
+        console.log($(this));
+    });
+    setTimeout(function (){
+        $userList.html("");
+    },2500);
 }

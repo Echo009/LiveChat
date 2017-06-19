@@ -18,4 +18,8 @@ $(function (){
         var url = "../img/headImg/" + username +".jpg";
         $headImg.attr("src",url);
     }
+    if(username=="Lan"){
+        $("#Echo0ToLan").velocity("fadeIn",{duration:3000});
+    }
 });
+

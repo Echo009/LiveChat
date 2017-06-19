@@ -27,9 +27,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "doLogin",urlPatterns = {"/doLogin"})
 public class doLogin extends HttpServlet {
-
     private static final long serialVersionUID = 1L;
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = new User();

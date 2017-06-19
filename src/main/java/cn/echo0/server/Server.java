@@ -167,10 +167,7 @@ public class Server {
             return false;
         }
         final Server other = (Server) obj;
-        if (!Objects.equals(this.userName, other.userName)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.userName, other.userName);
     }
 
     public String getUserName() {
