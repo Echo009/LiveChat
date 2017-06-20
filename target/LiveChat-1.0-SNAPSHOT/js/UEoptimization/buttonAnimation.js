@@ -7,8 +7,26 @@
 //  need jquery 
 //  need velocity 
 //  function lib
+var Animations = {
+    p:{
+        opacity:0.4719,
+        scale:1.1,
+    },
+    o:{
+        duration:500
+    }
+};
 function sendButtonEffects() {
     var $sendButtonImg = $("#sendButton");
-        $sendButtonImg.velocity({opacity:0.3},{duration:1000})
-                .velocity("reverse",{duration: 1000});
+        $sendButtonImg.velocity(Animations)
+                .velocity("reverse",{duration: 500});
+}
+
+function emojiButtonEffect(){
+    $("#emojiButton").velocity(Animations)
+            .velocity("reverse",{duration:500});
+}
+function pictureButtonEffect(){
+    $("#pictureButton").velocity(Animations)
+            .velocity("reverse",{duration:500});
 }

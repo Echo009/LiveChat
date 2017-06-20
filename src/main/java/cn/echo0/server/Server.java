@@ -67,7 +67,6 @@ public class Server {
         addUser();
         initUserListInfo();
         System.out.println(df.format(new Date()) + "    userName :  " + this.userName + "  join  ~ ");
-
     }
 
     public void sendTextMessage(String message) {

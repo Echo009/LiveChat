@@ -57,7 +57,7 @@
             </div>
         </div>
         <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
-         <%--<%@include file="./segment/effects.jsp" %>--%>
+         <%@include file="./segment/effects.jsp" %>
         <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
     </body>
 </html>

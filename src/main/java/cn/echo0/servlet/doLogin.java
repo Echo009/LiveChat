@@ -21,7 +21,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * attr: user , error , hasLogin
- *
  * @author Ech0
  */
 

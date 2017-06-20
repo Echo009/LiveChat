@@ -10,6 +10,7 @@
 //  local Test : 
 var serverUrl = 'ws://localhost:8080/LiveChat/server/';
 //var serverUrl = 'ws://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/server/';
+//var serverUrl = 'ws://10.1.13.176/LiveChat-1.0-SNAPSHOT/server/';
 var webSocket;
 var message; //消息正文 
 var socketStatus = 0;
@@ -113,16 +114,6 @@ function initWebSocket(webSocket) {
            },3000);
     };
 }
-
-// webSocket.close();
-//try {
-//    webSocket.send(message);
-//}catch (err){
-////    console.error(err);
-//    reConnect() ;
-//    webSocket.send(message);
-//}
-
 
 $(window).bind('beforeunload', function () { //关闭webSocket
     if (status == 1) {

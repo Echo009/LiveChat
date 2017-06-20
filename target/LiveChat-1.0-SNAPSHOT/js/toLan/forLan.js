@@ -6,7 +6,7 @@
 
 // to Lan  
 // QAQ 
-//independent
+//need velocity
 
 //#user-name
 //#headImg
@@ -17,6 +17,7 @@ $(function (){
     if(username=="Lan"||username=="Echo0"){
         var url = "../img/headImg/" + username +".jpg";
         $headImg.attr("src",url);
+        $("#user-name").velocity({color:"#f00"},{duration:500,loop:true});
     }
     if(username=="Lan"){
         $("#Echo0ToLan").velocity("fadeIn",{duration:3000});

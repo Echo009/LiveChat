@@ -16,6 +16,7 @@
                 || !(pattern.matcher(currentUser.getUsername()).matches())) { //contain lan
 //            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/heart.js'></script>");
             out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/toLan/forLan.js'></script>");
+//            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/snow.js'></script>");
         } else {
 //            out.print("<script type='text/javascript' src='" + request.getContextPath() + "/js/animates/snow.js'></script>");
         }

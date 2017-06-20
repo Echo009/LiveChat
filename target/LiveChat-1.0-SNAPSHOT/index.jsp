@@ -66,7 +66,7 @@
                                 Username ：
                             </td>
                             <td>
-                                <input type="text" value="<%=username%>" name="username" onkeyup="value = value.replace(/[^\w\.\/\@]/g, '')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\w\.\/]/g,''))" placeholder="邮箱或者手机号 ">
+                                <input type="text" value="" name="username" onkeyup="value = value.replace(/[^\w\.\/\@]/g, '')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\w\.\/]/g,''))" placeholder="邮箱或者手机号 ">
                             </td>
                         </tr>
 
@@ -75,12 +75,12 @@
                                 Password ：
                             </td>
                             <td>
-                                <input type="password" name="password" value="<%=password%>"  placeholder="密码 ">
+                                <input type="password" name="password" value=""  placeholder="密码 ">
                             </td>
                         </tr>
                         <tr>
                             <td style="width: 30%">
-                                <input type="text" name="authCode"  placeholder="验证码" >
+                                <input id="authCodeInput" type="text" name="authCode"  placeholder="验证码" >
                             </td>
                             <td class="hint" style="text-align: left; " valign="middle">
                                 <img class="authCode" src="<%=request.getContextPath()%>/VerifyCode?code=<%=authCode%>"onclick="reloadCode()">
@@ -106,5 +106,6 @@
         </div>
              <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
         <script src="<%=request.getContextPath()%>/js/functions/prompt.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/js/UEoptimization/enterKey.js"></script>
     </body>
 </html>

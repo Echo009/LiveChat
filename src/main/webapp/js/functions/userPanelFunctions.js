@@ -46,6 +46,9 @@ function addUserToUserListByUsername(username) {
     var userPanelWrapperPerfix = "<div class='user' title='";//+username
     var headImgWrapperPerfix = "'><img class='user-headImg' src='../img/headImg/";//+headImgString 
     var usernameWrapperPerfix = ".jpg'><div class='username'>";//+username 
+    if (username == "Echo0" || username == "Lan") {
+       usernameWrapperPerfix = ".jpg'><div class='username vipUser' style='color: #f00;'>";//+username 
+    }
     var divEndTag = "</div>";
     var user = userPanelWrapperPerfix + username
             + headImgWrapperPerfix + headImgString
@@ -55,7 +58,10 @@ function addUserToUserListByUsername(username) {
 
     var thisEle = ".user[title='" + username + "']";
     $(thisEle).velocity("slideDown", {duration: 1719});
-
+     if (username == "Echo0" || username == "Lan") {
+       $(thisEle).velocity({opacity:0.5}, {duration: 519,loop:true});
+       $(".vipUser").velocity({color:"#f01"},{duration: 200,loop:true});
+    }
 }
 function removeUserFromUserListByUsername(username) {
     var amount = $onlineUserAmount.text();
@@ -72,10 +78,10 @@ function cleanUserPanel() { //清除用户面板内的所有内容
     $onlineUserAmount.text("0");
     $users.each(function () {
         var time = 2500;
-        $(this).velocity("fadeOut",{duration:time-=200});
+        $(this).velocity("fadeOut", {duration: time -= 200});
         console.log($(this));
     });
-    setTimeout(function (){
+    setTimeout(function () {
         $userList.html("");
-    },2500);
+    }, 2500);
 }
