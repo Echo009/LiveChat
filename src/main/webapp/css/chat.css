@@ -6,11 +6,41 @@ Email   : ech0.extreme@foxmail.com
     Created on : Jun 13, 2017, 4:59:27 PM
     Author     : Ech0
 */
+#anotation{
+    /*消息注解*/
+    text-align: center;
+    border-top-style: dashed;
+    border-color: #393D49;
+    color: #FF5722;
+    border-width: 1px;
+    height: 24px;
+    font-size: 14px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+input{outline:none} 
 img{
     max-height: 600px;
     max-width: 500px;
     border-radius: 5px;
 }
+#closeImg{
+    border-radius: 0px;
+    width: 27px;
+    height: 27px;
+    border-top-right-radius:  10px;
+
+}
+#closeButton{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
 .message-username{
     text-overflow:ellipsis; 
     -o-text-overflow:ellipsis; 
@@ -19,7 +49,7 @@ img{
     vertical-align: top;
     margin-left:  0.3em;
     margin-top: 1em;
-    color: #ffe;
+    color: #000;
     padding: 2px;
     font-size: 13px;
     overflow: hidden;
@@ -38,15 +68,17 @@ img{
     max-height: 100%;
     display: inline-block;
     clear: both; 
-    color: #E83015;
-    padding: 5px;
+    color: #000;
     text-align: left;
+    padding: 5px;
     max-width: 500px;
     word-wrap:break-word;
-    
-    background: rgba(255,255,43,0.7);
-    border-style: dotted;
-    border-color: #ff7496;
+
+    /*#1E9FFF*/
+     background: rgba(100,100,180,0.3);
+    border-style: solid;
+    border-color: #c2c2c2;
+    border-width: 1px;
     border-radius: 10px;
 
 }
@@ -62,8 +94,6 @@ img{
     margin-left:  0.3em;
     margin-top: 0.5em;
 
-    border-style: dotted;
-    border-color: #ff7496;
     border-radius: 33px;
 }
 .message-own-warpper{
@@ -78,15 +108,16 @@ img{
     width: auto;
     display: inline-block;
     clear: both; 
-    color: gold;
+    color: #393D49;
     padding: 5px;
-    text-align: left;
+    text-align: right;
     max-width: 500px;
     word-wrap:break-word;
-
-    background: rgba(255,25,43,0.7);
-    border-style: dotted;
-    border-color: #ffe;
+    /*rgba(255,25,43,0.7)*/
+    background:#e2e2e2 ;
+    border-style: solid;
+    border-color: #c2c2c2;
+    border-width: 1px;
     border-radius: 10px;
 }
 .message-headImg-own{
@@ -100,8 +131,6 @@ img{
     margin-right: 0.3em;
     margin-top: 0.5em;
 
-    border-style: dotted;
-    border-color: #ff7496;
     border-radius: 33px;
 }
 .username{
@@ -113,12 +142,13 @@ img{
     top:  5px;
     font-family: 微软雅黑;
     font-weight: 600;
-    color: #86C166;
+    padding-left: 3px;
+    color: #000;
 }
 .user-headImg{
     width: 28px;
     height: 28px;
-    border-radius: 10px;
+    border-radius: 15px;
     border-style: none;
     border-color: #86C166;
     border-width: 2px;
@@ -133,6 +163,7 @@ img{
     margin-top: 10px;
     text-align: left;
     padding-left:6px;
+    cursor:pointer;
 }
 #onlineUserAmount{
     font-weight: bolder;
@@ -155,7 +186,6 @@ img{
 }
 
 #msgInput{  
-    background: #d6d6d6;
     padding-left: 14px; 
     padding-top: 10px; 
     padding-bottom: 10px; 
@@ -164,7 +194,7 @@ img{
 
     border:0;  
     background-color:transparent;  
-    color: springgreen;  
+    color: #393D49;  
     height: auto;  
     font-family: 微软雅黑;
     font-weight: 700;
@@ -215,8 +245,33 @@ img{
     border-radius: 33px;
     cursor: pointer;
 }
+#desc{
+    position: absolute;
+    right: 76px;
+    bottom: 0px;
 
-#emojiButton,#pictureButton{
+    display: inline-block;
+    text-align: right;
+    margin-bottom: 10px;
+}
+#assignReceiver{
+    cursor: pointer;
+    outline:none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+    padding-top: 15px; 
+    display: inline-block;
+    border-left-style: solid;
+    border-color: #393D49;
+    width: 72px;
+    height: 30px;   
+    color: #008000;
+    word-break: break-all;
+    overflow: hidden;
+}
+#emojiButton,#pictureButton,#shakeButton,#gifButton{
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -234,9 +289,10 @@ img{
 }
 #buttonPanel{
     border-bottom-style: solid;
-    border-color: #c2c2c2;
+    border-color: #393D49;
     border-radius: 4px;
 
+    padding-top: 3.719px;
     position: relative;
     width: auto;
     height: 40px;
@@ -244,13 +300,13 @@ img{
 }
 #userPanel{
     border-left-style: solid;
-    border-color: #c2c2c2;
+    border-color: #393D49;
     border-radius: 2px;
 
     display: inline-block;
     height: 100%;
     float:right;
-    width:198px;
+    width:213.3px;
     overflow-x:hidden;
     overflow-y: hidden;
 
@@ -264,20 +320,43 @@ img{
     overflow-y: auto;
     overflow-x: hidden;
 }
+.gif{
+    width: 117.19px;
+    height: 80px;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+#gifWrapper{
+    border-style: none;
+    border-radius: 5px;
+    background: rgba(255,255,239,0.6);
+
+    display: none;
+    padding-left: 14px;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    overflow: auto;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left:  0rem;
+    bottom: 12.4rem;
+}
 .emoji{
-    width: 45px;
-    height: 45px;
-    border-radius: 45px;
+    width: 57.19px;
+    height: 55px;
+    border-radius: 20px;
     display: inline-block;
     cursor: pointer;
 }
 #emojiWrapper{
-    border-style: dotted;
-    border-color: #ff7496;
+    border-style: none;
+    border-radius: 5px;
     background: rgba(255,255,239,0.6);
 
     display: none;
-    padding-left: 14px; 
+    padding-left: 14px;
     padding-top: 10px; 
     padding-bottom: 10px; 
     overflow: auto;
@@ -285,13 +364,13 @@ img{
     height: 200px;
     position: absolute;
     left:  0rem;
-    bottom: 2.4rem;
+    bottom: 2.6rem;
 }
 #content{
 
     border-bottom-style: solid;
     border-top-style: solid;
-    border-color: #c2c2c2;
+    border-color: #393D49;
     border-radius: 3px;
 
     width: auto;
@@ -351,12 +430,11 @@ body {
     background-size: cover;
 }
 #container{
-
-
     border-style: solid;
     border-color: #393D49;
     border-radius: 15px;
-    background:#FEDFE1;
+    /*#FEDFE1*/
+    background:rgba(254,223,225,0.8719);
     width: 1000px;
     height: 700px;
     position: absolute;

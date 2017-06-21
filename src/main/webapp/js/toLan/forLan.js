@@ -21,6 +21,11 @@ $(function (){
     }
     if(username=="Lan"){
         $("#Echo0ToLan").velocity("fadeIn",{duration:3000});
+        setTimeout(function (){
+            $("#Echo0ToLan").velocity("fadeOut",{duration:3000,complete:function (){
+                    $(this).remove();
+            }});
+        },7000);
     }
 });
 

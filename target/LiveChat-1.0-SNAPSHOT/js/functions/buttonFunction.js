@@ -12,12 +12,27 @@ var emojiButtonStatus = false;
 var customScrollbarStatus = false;
 var $messagePanel = $('#message');
 var $emojiWrapper = $('#emojiWrapper');
+var $gifWrapper = $("#gifWrapper");
 
 if (typeof (usernameString) == "undefined") {
     username = "Anonymous";
 } else {
     username = usernameString;
 }
+
+//#assignReceiver
+$(setTimeout(function (){
+    var $assignReceiver =$("#assignReceiver");
+    $assignReceiver.bind("click",function (){
+        var toUser = $assignReceiver.text();
+        if(toUser=="All users"){
+            alert("请从在线用户列表中选择对象");
+        }
+        else{
+             $assignReceiver.text("All users");
+        }
+    });
+},4000));
 
 //#pictureButton
 $(function () {
@@ -59,7 +74,7 @@ function addOtherMessageToPanel(otherMsgContentHtml, username) {//wrap otherMsg
             + otherMsgUsernamePerfix + username + divEndTag
             + otherMsgContentPerfix + otherMsgContentHtml + divEndTag;
     $messagePanel.append(otherMsgHtml);
-    scrollToMsgPanelBottom();
+//    scrollToMsgPanelBottom();
 //    console.log("otherMsg : " + otherMsgHtml);
 }
 //    <div class="message-own-warpper">
@@ -89,6 +104,51 @@ function addOwnMessageToPanel(msg) { //wrap ownMsg
     scrollToMsgPanelBottom();
 //    return 'ownMsg  : ' + ownMsgHtml;
 }
+
+//--------------------------------------------gif
+//<img class='gif' src='../img/gif/22.gif/>
+// class : gif 
+// title : serialNumber 
+function gif() {
+    $gifWrapper.slideToggle();
+}
+
+$(function createGifs() {
+    console.log('try to create gifs ~');
+    var gifSrcPerfix = "<img class='gif' src='../img/gif/"
+    var gifSrcSuffix = ".gif'";
+    var gifTitilePerfix = "title='";
+    var gifTitleSuffix = "'/>";
+    var gifs = "";
+    for (var i = 1; i < 43; i++) {
+        gifs = gifs + gifSrcPerfix
+                + i + gifSrcSuffix
+                + gifTitilePerfix + i +
+                gifTitleSuffix;
+    }
+    var $gifs = $(gifs);
+    $gifs.appendTo($gifWrapper);
+    $gifWrapper.hide();
+    $gifWrapper.mCustomScrollbar({theme: "inset-3-dark"});
+
+    //event 
+    $('.gif').click(function () {
+        console.log($(this).attr('title'));
+        var $msgInput = $('#msgInput');
+          // 这里需要恢复原来的gif图比例
+        var $gif = $(this).clone();
+        $gif.removeAttr("class");
+   
+        $msgInput.append($gif);
+        $gifWrapper.slideToggle();
+    });
+    $gifWrapper.mouseleave(function () {
+        $(this).hide(719);
+    });
+});
+
+
+
 //--------------------------------------------emoji
 function emoji() {
     $emojiWrapper.slideToggle();

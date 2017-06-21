@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../img/siteIcon.png" />
         <title> Online-Chat </title>
     <a href="../index.jsp"></a>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/chat.css" type="text/css">
@@ -32,6 +33,7 @@
                 <div id='user-name'><%=currentUser.getUsername()%></div>
                 <div id="user-personalNote"> Nothing on You ~ </div>
             </div>
+            <div id="closeButton"><img id="closeImg" onmouseover="closeButtonEffect_on()" onclick="window.location = './main.jsp'" onmouseout="closeButtonEffect_out()" src="<%=request.getContextPath()%>/img/button/close.png"></div>
         </div>
         <div id="content">
             <div id="message">
@@ -52,7 +54,10 @@
             <div id="emojiWrapper"></div>
             <div id="emojiButton"><img class="functionButton" onmouseover="emojiButtonEffect()" onclick="emoji()" src="<%=request.getContextPath()%>/img/button/emoji.png"></div>
             <div id="pictureButton"><img class="functionButton" onmouseover="pictureButtonEffect()"src="<%=request.getContextPath()%>/img/button/img.png"></div>
+            <div id="shakeButton"><img class="functionButton" onmouseover="shakeButtonEffects()" onclick="sendShakeMsg()" src="<%=request.getContextPath()%>/img/button/shake.png"></div>
+            <div id="gifButton"><img class="functionButton" onmouseover="gifButtonEffects()" onclick="gif()" src="<%=request.getContextPath()%>/img/button/gif.png"></div>
             <input id="choosePic" type="file" name="choosePic" value="" width="0" style="display: none" onchange="addImgToInputMsgPanel()"/>
+            <div id="desc">Send to</div><div id="assignReceiver"  >All users</div>
         </div>
         <div id="footer">
             <div id="msgInput" contentEditable="true"></div>
@@ -60,6 +65,7 @@
 
         </div>
         <div id="emojiWrapper"></div>
+        <div id="gifWrapper"></div>
     </div>
     <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
     <%@include file="./segment/effects.jsp" %>

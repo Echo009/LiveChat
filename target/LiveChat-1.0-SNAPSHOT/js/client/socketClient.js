@@ -16,6 +16,7 @@ var message; //消息正文
 var socketStatus = 0;
 var usernameString;
 var $inputMsg = $('#msgInput');
+var canSendShake = true;
 
 //get username
 //@ServerEndpoint("/server/{userName}")
@@ -44,6 +45,7 @@ $(function () {
 //    2 : 更新用户列表 +1
 //    3 : 更新用户列表 - 1 
 //    4 : 初始化用户列表
+//    5 : 窗口抖动
 function onMessage(event) { //to show other msg
     // to do  提取data中的 消息正文 以及用户名 ,消息类型
     // formMsgObject(msgJsonString)
@@ -51,8 +53,17 @@ function onMessage(event) { //to show other msg
     var type = msg.msgType;
     var fromUsername = msg.from;
     var msgContent = msg.msgContent;
+    var time = msg.timeStamp;
     console.log(type + " " + fromUsername);
     if (type == 0) {
+        addOtherMessageToPanel(msgContent, fromUsername);
+    } else if (type == 1) {//receive from sb
+        msgContent = msgContent + "<div id='anotation'><pre>Here is a message For You , At " + time
+                + "</pre></div>";
+        addOtherMessageToPanel(msgContent, fromUsername);
+    } else if (type == 5) {//shake window
+        shakeWindow();
+        msgContent = "<img src='../img/fun/shake.png'>";
         addOtherMessageToPanel(msgContent, fromUsername);
     } else if (type == 2) {// add user  to userPanel
         addUserToUserListByUsername(msgContent);// 正文中仅包含单个用户名
@@ -61,24 +72,50 @@ function onMessage(event) { //to show other msg
     }
 }
 //#msgInput
+//#assignReceiver
 function sendMsg() {//to send msg , and add ownMsg to MessagePannel
     message = $inputMsg.html();
     if (message == "") {
         console.log("no message !");
         return;
     }
-    addOwnMessageToPanel(message);
-    $inputMsg.html("");
+    var toUser = $("#assignReceiver").text();
+    if (toUser == "All users") {
+        //群发
+        addOwnMessageToPanel(message);
+        $inputMsg.html("");
 //    to do  encapsulate message .
 //    encapsulateMsg(type,from,msgContent,to,containImg)
-//   目前仅实现群发 纯文本消息
-    message = encapsulateMsg(0, usernameString, message, "", false);
-    webSocket.send(message);
+        message = encapsulateMsg(0, usernameString, message, "", false);
+        webSocket.send(message);
+    } else {
+        //to sb 
+        var temp = encapsulateMsg(1, usernameString, message, toUser, false);
+        var time = formMsgObject(temp).timeStamp;
+        webSocket.send(temp);
+        message = message + "<div id='anotation'><pre>Send To " + toUser + " , At " + time
+                + "</pre></div>";
+        addOwnMessageToPanel(message);
+        $inputMsg.html("");
+    }
 }
-
-
+//send shakeMsg
+function sendShakeMsg() {
+    if (canSendShake) {
+        canSendShake = false;
+        shakeWindow();
+        message = "<img src='../img/fun/shake.png'>";
+        addOwnMessageToPanel(message);
+        message = encapsulateMsg(5, usernameString, "[shake]", "", false);
+        webSocket.send(message);
+        setTimeout(function () {
+            canSendShake = true;
+        }, 8000);
+    } else {
+        alert("发送窗口抖动过于频繁，请稍候再试！");
+    }
+}
 function onOpen(event) {
-//    alert("connection establishment");
     console.log("connection establishment");
 }
 
@@ -89,7 +126,7 @@ function onError(event) {
 function reConnect() {
     webSocket = new WebSocket(serverUrl);
     initWebSocket(webSocket);
-     console.log("reConnect !");
+    console.log("reConnect !");
 }
 function initWebSocket(webSocket) {
 
@@ -104,14 +141,14 @@ function initWebSocket(webSocket) {
     webSocket.onmessage = function (event) {
         onMessage(event);
     };
-    webSocket.onclose=function (){
-           console.log("connection has been closed !");  //在这里需要重连或者退出或者直接刷新
-           console.log("try to reConnect !");
-           //init userPanel
-           cleanUserPanel();
-           setTimeout(function (){
-                reConnect();
-           },3000);
+    webSocket.onclose = function () {
+        console.log("connection has been closed !");  //在这里需要重连或者退出或者直接刷新
+        console.log("try to reConnect !");
+        //init userPanel
+        cleanUserPanel();
+        setTimeout(function () {
+            reConnect();
+        }, 3000);
     };
 }
 

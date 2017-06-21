@@ -5,13 +5,18 @@
  */
 package cn.echo0.server;
 
+import cn.echo0.pojo.Msg;
 import cn.echo0.utils.UserMsgUtil;
+import static cn.echo0.utils.UserMsgUtil.genMsgBeanByJsonString;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -45,29 +50,39 @@ public class Server {
     public void onMessage(String message)
             throws IOException, InterruptedException {
         System.out.println("------------------------------------------------------");
-        System.out.println(df.format(new Date()) + "    Received from  " + userName + "      : " + message);
-
-        for (Server user : serverSet) {
-            if (!this.equals(user)) {
-                user.sendTextMessage(message);
+        // 构造Msg对象
+        Msg msg = genMsgBeanByJsonString(message);
+        System.out.println(df.format(new Date()) + "    Received from  " + userName + "      : " + message + "   To  " + msg.getTo());
+        if (msg.getMsgType() == 0 || msg.getMsgType() == 5) {//群发类型，或者窗口抖动
+            for (Server user : serverSet) {
+                if (!this.equals(user)) {
+                    user.sendTextMessage(message);
+                }
+            }
+        } else if (msg.getMsgType() == 1) {//转发给某个特定用户
+            for (Server user : serverSet) {
+                if (msg.getTo().equals(user.getUserName())) {
+                    user.sendTextMessage(message);
+                }
             }
         }
     }
-
-    @OnOpen
-    public void onOpen(@PathParam("userName") String userName, Session session) {//add 
+        @OnOpen
+        public void onOpen(@PathParam("userName")String userName, Session session) {//add 
         System.out.println("------------------------------------------------------");
-        userName = userName.trim();
-        if (StringUtils.isBlank(userName)) {
-            this.userName = "Anonymous";
-        } else {
-            this.userName = userName;
+            userName = userName.trim();
+            if (StringUtils.isBlank(userName)) {
+                this.userName = "Anonymous";
+            } else {
+                this.userName = userName;
+            }
+            this.session = session;
+            addUser();
+            initUserListInfo();
+            System.out.println(df.format(new Date()) + "    userName :  " + this.userName + "  join  ~ ");
         }
-        this.session = session;
-        addUser();
-        initUserListInfo();
-        System.out.println(df.format(new Date()) + "    userName :  " + this.userName + "  join  ~ ");
-    }
+
+    
 
     public void sendTextMessage(String message) {
         System.out.println("sent meeage to  " + this.userName);
@@ -77,7 +92,7 @@ public class Server {
     public void initUserListInfo() {
         //发送当前用户列表
         for (Server user : serverSet) {
-                sendTextMessage(UserMsgUtil.genMsgJsonString_AddUser(user.getUserName()));
+            sendTextMessage(UserMsgUtil.genMsgJsonString_AddUser(user.getUserName()));
         }
     }
 

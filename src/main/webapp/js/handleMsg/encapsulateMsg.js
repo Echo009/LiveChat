@@ -21,7 +21,7 @@
 //    2 : 更新用户列表 
 //    3 : 更新用户列表 
 //    4 : 初始化用户列表
-
+//    5 :窗口抖动
 //independent
 
 Date.prototype.Format = function (fmt) {

@@ -7,7 +7,7 @@
 //  need jquery 
 //  need velocity 
 //  function lib
-var Animations = {
+var buttonAnimation = {
     p:{
         opacity:0.4719,
         scale:1.1,
@@ -16,17 +16,31 @@ var Animations = {
         duration:500
     }
 };
+function gifButtonEffects(){
+     $("#gifButton").velocity(buttonAnimation)
+            .velocity("reverse",{duration:500});
+}
+function shakeButtonEffects(){
+     $("#shakeButton").velocity(buttonAnimation)
+            .velocity("reverse",{duration:500});
+}
 function sendButtonEffects() {
     var $sendButtonImg = $("#sendButton");
-        $sendButtonImg.velocity(Animations)
+        $sendButtonImg.velocity(buttonAnimation)
                 .velocity("reverse",{duration: 500});
 }
 
 function emojiButtonEffect(){
-    $("#emojiButton").velocity(Animations)
+    $("#emojiButton").velocity(buttonAnimation)
             .velocity("reverse",{duration:500});
 }
 function pictureButtonEffect(){
-    $("#pictureButton").velocity(Animations)
+    $("#pictureButton").velocity(buttonAnimation)
             .velocity("reverse",{duration:500});
+}
+function closeButtonEffect_on(){
+    $("#closeImg").attr("src","../img/button/close_1.png");
+}
+function closeButtonEffect_out(){
+        $("#closeImg").attr("src","../img/button/close.png");
 }

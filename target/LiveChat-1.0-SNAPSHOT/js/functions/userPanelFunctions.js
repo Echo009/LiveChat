@@ -34,7 +34,18 @@
 
 var $onlineUserAmount = $("#onlineUserAmount");
 var $userList = $("#userList");
+//send msg to sb 
+$(function () {
+    setTimeout(function () {
+        $(".user").bind("click", function () {
+            var toUser = $(this).text();
+            $("#assignReceiver").text(toUser);
+        });
+    }, 4000);
+});
+
 function addUserToUserListByUsername(username) {
+    console.log("add : " + username);
     var amount = $onlineUserAmount.text();
     amount++;
     $onlineUserAmount.text(amount);
@@ -47,7 +58,7 @@ function addUserToUserListByUsername(username) {
     var headImgWrapperPerfix = "'><img class='user-headImg' src='../img/headImg/";//+headImgString 
     var usernameWrapperPerfix = ".jpg'><div class='username'>";//+username 
     if (username == "Echo0" || username == "Lan") {
-       usernameWrapperPerfix = ".jpg'><div class='username vipUser' style='color: #f00;'>";//+username 
+        usernameWrapperPerfix = ".jpg'><div class='username vipUser' style='color: #f00;'>";//+username 
     }
     var divEndTag = "</div>";
     var user = userPanelWrapperPerfix + username
@@ -57,29 +68,30 @@ function addUserToUserListByUsername(username) {
 //    .user[title='username']
 
     var thisEle = ".user[title='" + username + "']";
-    $(thisEle).velocity("slideDown", {duration: 1719});
-     if (username == "Echo0" || username == "Lan") {
-       $(thisEle).velocity({opacity:0.5}, {duration: 519,loop:true});
-       $(".vipUser").velocity({color:"#f01"},{duration: 200,loop:true});
+    $(thisEle).velocity("transition.slideRightIn", {duration: 1719});
+    if (username == "Echo0" || username == "Lan") {
+        $(thisEle).velocity({opacity: 0.5}, {duration: 519, loop: true});
+        $(".vipUser").velocity({color: "#f01"}, {duration: 200, loop: true});
+    } else {
+        $(thisEle).velocity({opacity: 0.5}, {duration: 519, loop: 3});
     }
 }
 function removeUserFromUserListByUsername(username) {
     var amount = $onlineUserAmount.text();
+    console.log("remove : " + username);
     amount--;
     $onlineUserAmount.text(amount);
 
     var selector = ".user[title='" + username + "']";
-    $(selector).velocity("slideUp", {duration: 1719, complete: function () {
-            $(this).remove();
-        }});
+    $(selector).remove();
 }
 function cleanUserPanel() { //清除用户面板内的所有内容
+    console.log("try to clean userPanel : ");
     var $users = $("#userList .user");
     $onlineUserAmount.text("0");
     $users.each(function () {
         var time = 2500;
         $(this).velocity("fadeOut", {duration: time -= 200});
-        console.log($(this));
     });
     setTimeout(function () {
         $userList.html("");
