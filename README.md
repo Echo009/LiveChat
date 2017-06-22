@@ -7,4 +7,4 @@
 + 支持发送自定义图片。（）
 + 各种动画效果（velocity.js实现）。
 + 具有良好的可扩展性。
-http://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/
+- http://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/
