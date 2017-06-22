@@ -26,10 +26,11 @@ $(setTimeout(function (){
     $assignReceiver.bind("click",function (){
         var toUser = $assignReceiver.text();
         if(toUser=="All users"){
-            alert("请从在线用户列表中选择对象");
+            say("请从在线用户列表中选择对象~");
         }
         else{
              $assignReceiver.text("All users");
+             say("已切换到群聊模式~");
         }
     });
 },4000));
@@ -63,7 +64,7 @@ function addOtherMessageToPanel(otherMsgContentHtml, username) {//wrap otherMsg
     } else {
         headImgString = "default";
     }
-    var otherMsgWrapperPerfix = "<div class='message-other-warpper'>" +
+    var otherMsgWrapperPerfix = "<div class='message-other-warpper msg'>" +
             "<img class='message-headImg-other' src='../img/headImg/";
     var otherMsgHeadImgSuffix = ".jpg'/>";
     var otherMsgUsernamePerfix = " <div class='message-username'>"
@@ -91,7 +92,7 @@ function addOwnMessageToPanel(msg) { //wrap ownMsg
     } else {
         headImgString = "default";
     }
-    var ownMsgWrapperPerfix = "<div class='message-own-warpper'>" +
+    var ownMsgWrapperPerfix = "<div class='message-own-warpper msg'>" +
             "<div  class='message-content-own'>";
     var ownMsgUsernamePerfix = "<div class='message-username'>";
     var divEndTag = "</div>";
@@ -104,6 +105,24 @@ function addOwnMessageToPanel(msg) { //wrap ownMsg
     scrollToMsgPanelBottom();
 //    return 'ownMsg  : ' + ownMsgHtml;
 }
+//--------------------------------------------cleanMsgPanel
+
+function  cleanMsgPanel(){
+    scrollToMsgPanelBottom();
+    var $messages = $("#message .msg");
+    var delayTime = 0;
+    if($messages.toArray().length==0){
+        say("当前消息面板是空的哦~","",719);
+        return ;
+    }
+    $($messages.toArray().reverse()).each(function (){
+        $(this).velocity("transition.flipXOut" , {duration:619,delay:delayTime+=600,complete:function (){
+                $(this).remove();
+                scrollToMsgPanelBottom();
+        }});
+    })
+}
+
 
 //--------------------------------------------gif
 //<img class='gif' src='../img/gif/22.gif/>

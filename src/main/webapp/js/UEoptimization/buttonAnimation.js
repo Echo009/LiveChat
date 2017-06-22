@@ -16,6 +16,10 @@ var buttonAnimation = {
         duration:500
     }
 };
+function cleanButtonEffects(){
+    $("#cleanButton").velocity(buttonAnimation)
+            .velocity("reverse",{duration:500});
+}
 function gifButtonEffects(){
      $("#gifButton").velocity(buttonAnimation)
             .velocity("reverse",{duration:500});

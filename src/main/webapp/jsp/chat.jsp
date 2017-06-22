@@ -21,23 +21,25 @@
     <script src="<%=request.getContextPath()%>/lib/blast-text/jquery.blast.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/lib/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    <script src="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.css">
+    <script src="<%=request.getContextPath()%>/js/UEoptimization/myAlert.js"></script> 
 </head>
 <!--need currentUser-->
 <%@include file="./segment/checkLoginStatus.jsp" %>
 <body>
     <div id="container">
         <div id="header">
-            <img id="headImg" src="<%=request.getContextPath()%>/img/default.jpg">
+            <img id="headImg" onmouseover="rotateHeaderImg()" src="<%=request.getContextPath()%>/img/headImg/default.jpg">
             <div id="user-desc-wrapper">
                 <div id='user-name'><%=currentUser.getUsername()%></div>
                 <div id="user-personalNote"> Nothing on You ~ </div>
             </div>
-            <div id="closeButton"><img id="closeImg" onmouseover="closeButtonEffect_on()" onclick="window.location = './main.jsp'" onmouseout="closeButtonEffect_out()" src="<%=request.getContextPath()%>/img/button/close.png"></div>
+                <div id="closeButton"><img id="closeImg" onmouseover="closeButtonEffect_on()" onclick="closeWindow()" onmouseout="closeButtonEffect_out()" src="<%=request.getContextPath()%>/img/button/close.png"></div>
         </div>
         <div id="content">
             <div id="message">
-                <div class="message-other-warpper" style="display: none" id="Echo0ToLan">
+                <div class="message-other-warpper msg" style="display: none" id="Echo0ToLan">
                     <img class="message-headImg-other" src="<%=request.getContextPath()%>/img/headImg/Echo0.jpg"/>
                     <div class="message-username">Echo0</div>
                     <div  class="message-content-other">好喜欢你啊 ！<img class='emoji' src='../img/phiz/22.png'/> <br><br><br><br><br><img class='emoji' src='../img/phiz/21.png'/> </div>
@@ -56,6 +58,7 @@
             <div id="pictureButton"><img class="functionButton" onmouseover="pictureButtonEffect()"src="<%=request.getContextPath()%>/img/button/img.png"></div>
             <div id="shakeButton"><img class="functionButton" onmouseover="shakeButtonEffects()" onclick="sendShakeMsg()" src="<%=request.getContextPath()%>/img/button/shake.png"></div>
             <div id="gifButton"><img class="functionButton" onmouseover="gifButtonEffects()" onclick="gif()" src="<%=request.getContextPath()%>/img/button/gif.png"></div>
+            <div id="cleanButton"><img class="functionButton" onmouseover="cleanButtonEffects()" onclick="cleanMsgPanel()" src="<%=request.getContextPath()%>/img/button/clean.png"></div>
             <input id="choosePic" type="file" name="choosePic" value="" width="0" style="display: none" onchange="addImgToInputMsgPanel()"/>
             <div id="desc">Send to</div><div id="assignReceiver"  >All users</div>
         </div>

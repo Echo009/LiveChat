@@ -11,10 +11,10 @@
         return;
     }
     if (form.hasError.value == 1) {
-        alert('Incorrect Account or Password');
+        say('Incorrect Account or Password');
     } else if (form.hasError.value == 2) {
-        alert('username is already used !');
+        say('username is already used !');
     } else if (form.hasError.value == 3) {
-        alert('logon successfully !');
+        say('logon successfully !');
     }
 })();

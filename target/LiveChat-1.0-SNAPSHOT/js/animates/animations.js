@@ -8,6 +8,10 @@
 // some animations
 // 
 // 
+// transform:rotate(7deg);
+
+
+// 
 //#user-personalNote
 //$("#user-personalNote").blast({delimiter: "character"})
 //        .css("opacity", 0)
@@ -23,9 +27,14 @@ $(function () {
                 .velocity("transition.slideRightIn", {stagger: 150, drag: true});
     }, 7719);
 });
-//    left: 50%;
-//    top: 50%;
-//    transform: translate(-50%,-50%);
+
+function closeWindow() {
+    $("#container").velocity("transition.fadeOut", {duration: 2719});
+    setTimeout(function (){
+        window.location = './main.jsp';
+    },2000);
+}
+
 var Animations = {
     shake_container: {
         p: {
@@ -36,8 +45,20 @@ var Animations = {
             loop: 8,
             duration: 21.9
         }
-    }
+    },
+    rotateHeaderImg: {
+        p: {
+            rotateY: 180,
+        },
+        o: {
+            duration: 719,
+        }}
 };
+function rotateHeaderImg() {
+    var $headImg = $('#headImg');
+    $headImg.velocity(Animations.rotateHeaderImg)
+            .velocity("reverse");
+}
 function shakeWindow() {
     $("#container").velocity(Animations.shake_container);
 }

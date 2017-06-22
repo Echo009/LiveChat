@@ -47,7 +47,7 @@ body {
     height: 35px;
 }
 .panel{
-    background: rgba(230, 238, 214,0.8);
+    background: rgba(230, 238, 214,0.6);
     position: absolute;
     z-index: 2;
     left: 50%;
@@ -82,7 +82,7 @@ td, th {
     font-size:13px;
     font-weight: bold;
     font-family: 微软雅黑;
-    color:#6a6f77;
+    color:#434343;
 }
 
 /* Alternating background colors */
@@ -108,6 +108,7 @@ input[type="text"]:focus{
     border:1px solid #ff7496;
 }
 #reset,#submit1{
+    cursor: pointer;
     text-align:center;
     background: #86C166;
     font-size:1.5em;

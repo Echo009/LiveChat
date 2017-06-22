@@ -75,7 +75,7 @@ img{
     word-wrap:break-word;
 
     /*#1E9FFF*/
-     background: rgba(100,100,180,0.3);
+    background: rgba(100,100,180,0.3);
     border-style: solid;
     border-color: #c2c2c2;
     border-width: 1px;
@@ -271,7 +271,7 @@ img{
     word-break: break-all;
     overflow: hidden;
 }
-#emojiButton,#pictureButton,#shakeButton,#gifButton{
+#emojiButton,#pictureButton,#shakeButton,#gifButton,#cleanButton{
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -306,7 +306,8 @@ img{
     display: inline-block;
     height: 100%;
     float:right;
-    width:213.3px;
+    /*213.3px*/
+    width:212.3px;
     overflow-x:hidden;
     overflow-y: hidden;
 
@@ -412,7 +413,7 @@ img{
     height: 71px;
     border-radius: 50px;
     border-style: inset;
-    border-color: #86C166;
+    border-color: #1E9FFF;
     clear: both; 
     display: inline-block; 
     margin-left: 18px;

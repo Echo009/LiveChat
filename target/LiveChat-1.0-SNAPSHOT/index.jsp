@@ -14,6 +14,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.css">
+    <script src="<%=request.getContextPath()%>/js/UEoptimization/myAlert.js"></script> 
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/functions/verify.js"></script>
 
     <meta http-equiv="refresh" content="180">
@@ -101,10 +104,10 @@
                 </form>
                 <%
                     session.setAttribute(Const.STATUS, 0); //Guaranteed to handle this error only once
-                %>
+%>
             </div>
         </div>
-             <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
+        <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
         <script src="<%=request.getContextPath()%>/js/functions/prompt.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/js/UEoptimization/enterKey.js"></script>
     </body>

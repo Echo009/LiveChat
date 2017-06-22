@@ -22,6 +22,7 @@ function addImgToInputMsgPanel() {
         var imgHtml =  '<img src="' + this.result + '" alt="" />';
         var $msgInput=$("#msgInput");
         $msgInput.append(imgHtml);
+        say("图片过大，可能发不过去，但是呢，本地预览还是可以的 ~");
     };
 }
 $(function () {

@@ -17,12 +17,12 @@
     <body>
         <div class="panel">
             <div >
-                <img class="headImg" src="<%=request.getContextPath()%>/img/default.jpg"> 
+                <img class="headImg" id="headImg" src="<%=request.getContextPath()%>/img/default.png"> 
             </div>
             <hr>
             <div class="content">
                 <div class="word" >
-                    Welcome ! <%=currentUser == null ? "Void" : currentUser.getUsername()%> 
+                    Welcome !  <%=currentUser == null ? "Void" : currentUser.getUsername()%> 
                 </div>
                 <div class="space"></div>
                 <div class="space"></div>
@@ -57,7 +57,22 @@
             </div>
         </div>
         <script type="text/javascript" src="<%=request.getContextPath()%>/lib/jquery.min.js"></script>
-         <%@include file="./segment/effects.jsp" %>
+        <script src="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/lib/sweetAlert/dist/sweetalert.css">
+        <script src="<%=request.getContextPath()%>/js/UEoptimization/myAlert.js"></script> 
+        <script type="text/javascript" src="<%=request.getContextPath()%>/lib/velocity/velocity.js"></script>
+        <script src="<%=request.getContextPath()%>/lib/velocity/velocity.ui.js"></script>
+        <script src="<%=request.getContextPath()%>/lib/blast-text/jquery.blast.js"></script>
+        <%@include file="./segment/effects.jsp" %>
         <a id="logo" href="http://echo0.cn">Echo0<span id="logoDot">.</span>cn</a>
+        <script>
+                  $('.word').blast({delimiter: "all"})
+                        .css("opacity", 0)
+                        .velocity("transition.perspectiveDownIn", {stagger: 100, drag: true, complete: function () {
+                                       window.location= "./chat.jsp";
+                            }
+                        });
+                   $("#headImg").velocity({rotateY:180},{loop:true,duration:3000});   
+        </script>
     </body>
 </html>

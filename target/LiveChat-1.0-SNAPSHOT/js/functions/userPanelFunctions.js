@@ -35,14 +35,13 @@
 var $onlineUserAmount = $("#onlineUserAmount");
 var $userList = $("#userList");
 //send msg to sb 
-$(function () {
-    setTimeout(function () {
-        $(".user").bind("click", function () {
-            var toUser = $(this).text();
-            $("#assignReceiver").text(toUser);
-        });
-    }, 4000);
-});
+function setToSb() {
+    $(".user").bind("click", function () {
+        var toUser = $(this).text();
+        $("#assignReceiver").text(toUser);
+        say("现在你可以单独与 "+toUser+" 畅聊了~");
+    });
+}
 
 function addUserToUserListByUsername(username) {
     console.log("add : " + username);
@@ -65,6 +64,7 @@ function addUserToUserListByUsername(username) {
             + headImgWrapperPerfix + headImgString
             + usernameWrapperPerfix + username + divEndTag + divEndTag;
     $userList.append(user);
+    setToSb();
 //    .user[title='username']
 
     var thisEle = ".user[title='" + username + "']";

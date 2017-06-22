@@ -8,8 +8,8 @@
 
 //  provide usernameString
 //  local Test : 
-var serverUrl = 'ws://localhost:8080/LiveChat/server/';
-//var serverUrl = 'ws://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/server/';
+//var serverUrl = 'ws://localhost:8080/LiveChat/server/';
+var serverUrl = 'ws://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/server/';
 //var serverUrl = 'ws://10.1.13.176/LiveChat-1.0-SNAPSHOT/server/';
 var webSocket;
 var message; //消息正文 
@@ -75,8 +75,10 @@ function onMessage(event) { //to show other msg
 //#assignReceiver
 function sendMsg() {//to send msg , and add ownMsg to MessagePannel
     message = $inputMsg.html();
-    if (message == "") {
-        console.log("no message !");
+    var temp =message.replace("<div><br></div>", "")//去掉回车换行
+    temp = temp.replace("<div><br></div>", "")
+    if (temp == "") {
+        say("不能发送空消息哦！", "", 1000);
         return;
     }
     var toUser = $("#assignReceiver").text();
@@ -112,7 +114,7 @@ function sendShakeMsg() {
             canSendShake = true;
         }, 8000);
     } else {
-        alert("发送窗口抖动过于频繁，请稍候再试！");
+        say("发送窗口抖动过于频繁，请稍候再试！");
     }
 }
 function onOpen(event) {
@@ -120,7 +122,7 @@ function onOpen(event) {
 }
 
 function onError(event) {
-    alert("error ", event.data);
+    say("Error " + event.data);
     location.reload(true);
 }
 function reConnect() {
