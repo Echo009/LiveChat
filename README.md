@@ -7,4 +7,6 @@
 + 支持发送自定义图片。（）
 + 各种动画效果（velocity.js实现）。
 + 具有良好的可扩展性。
+
+ ![overview](https://raw.githubusercontent.com/Echo009/LiveChat/master/src/main/webapp/img/overview.png)
 ### http://echo0.cn:8080/LiveChat-1.0-SNAPSHOT/
